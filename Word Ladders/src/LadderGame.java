@@ -5,12 +5,12 @@ import java.util.Scanner;
 import java.util.Random;
 import java.io.File;
 import java.util.ArrayList;
-public class LadderGame<E> {
+public class LadderGame <E>{
     static int MaxWordSize = 15;
     ArrayList<String>[] allList;
     Random random;
-    E element;
-    Node<E> next;
+
+
 
     public LadderGame(String file){
         random = new Random();
@@ -58,7 +58,10 @@ public class LadderGame<E> {
             }
         }
     }
-    public LadderGame(E e){
-        element = e;
+    public class LinkedList{
+        class Node {
+            String word;
+            Node next;
+        }
     }
 }
