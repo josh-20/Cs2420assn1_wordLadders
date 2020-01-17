@@ -38,6 +38,8 @@ public class LadderGame <E>{
         ArrayList list = new ArrayList();
         ArrayList<String> l = allList[a.length()];
         list = (ArrayList) l.clone();
+        for (String i : allList[a.length()])
+
         System.out.println("Seeking a solution from " + a + " ->" + b + " Size of List " + list.size());
 
     }
@@ -56,12 +58,6 @@ public class LadderGame <E>{
                 System.out.println(i);
                 count++;
             }
-        }
-    }
-    public class LinkedList{
-        class Node {
-            String word;
-            Node next;
         }
     }
 }

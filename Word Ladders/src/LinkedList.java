@@ -1,4 +1,9 @@
-public class LinkedList {
+public class LinkedList extends LadderGame {
+
+    public LinkedList(String file) {
+        super(file);
+    }
+
     class Node{
         String word;
         Node next;
@@ -6,8 +11,6 @@ public class LinkedList {
         public Node(String word){
             this.word = word;
             this.next = null;
-
-
         }
     }
     public Node head = null;
@@ -39,15 +42,6 @@ public class LinkedList {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-        LinkedList list = new LinkedList();
-        String[] words = {"hello", "yes", "no"};
-
-        for (String i : words){
-            list.addNode(i);
-        }
-        list.display();
-    }
 }
 
 
