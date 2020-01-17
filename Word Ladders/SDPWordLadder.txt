@@ -10,3 +10,9 @@ Design
 	- using a linked list as a que my program should ust the breadth first search to search a list of words and find the quickest ladder between two words
 	- program should determine how many words were read from dictionary, be able to display all the words which are one away from a given word and be able to display the contents of the 
 	partial Solution list.
+
+Test Case 1:
+
+
+Test Case 2:
+
