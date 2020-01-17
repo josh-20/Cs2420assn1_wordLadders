@@ -1,0 +1,12 @@
+Requirments
+	- Find the shortest path between two words of the same length (Example "cat" and "dog") using linked lists and ques
+
+	- do not allow to search for different sized words if different size word is given end search there.
+	
+	- 
+
+
+Design
+	- using a linked list as a que my program should ust the breadth first search to search a list of words and find the quickest ladder between two words
+	- program should determine how many words were read from dictionary, be able to display all the words which are one away from a given word and be able to display the contents of the 
+	partial Solution list.
