@@ -9,6 +9,7 @@ public class LadderGame <E>{
     static int MaxWordSize = 15;
     ArrayList<String>[] allList;
     Random random;
+    LinkedList lList = new LinkedList();
 
 
 
@@ -39,7 +40,8 @@ public class LadderGame <E>{
         ArrayList<String> l = allList[a.length()];
         list = (ArrayList) l.clone();
         for (String i : allList[a.length()])
-
+            lList.addNode(i);
+        lList.display();
         System.out.println("Seeking a solution from " + a + " ->" + b + " Size of List " + list.size());
 
     }

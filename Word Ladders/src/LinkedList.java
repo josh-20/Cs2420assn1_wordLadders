@@ -1,13 +1,8 @@
-public class LinkedList extends LadderGame {
+public class LinkedList {
 
-    public LinkedList(String file) {
-        super(file);
-    }
-
-    class Node{
+    class Node {
         String word;
         Node next;
-
         public Node(String word){
             this.word = word;
             this.next = null;
@@ -18,7 +13,6 @@ public class LinkedList extends LadderGame {
 
     public void addNode(String words){
         Node newNode = new Node(words);
-
         if (head == null){
             head = newNode;
             tail = newNode;
