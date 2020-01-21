@@ -28,7 +28,6 @@ public class LadderGame <E>{
         } catch(Exception e){
             e.printStackTrace();
         }
-
     }
     public void play(String a, String b){
         if (a.length() != b.length()){
@@ -61,5 +60,9 @@ public class LadderGame <E>{
                 count++;
             }
         }
+    }
+    public void findLadder(String start, String end){
+        lList.addNode(start);
+
     }
 }

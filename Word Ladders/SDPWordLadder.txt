@@ -7,9 +7,12 @@ Requirments
 
 
 Design
-	- using a linked list as a que my program should ust the breadth first search to search a list of words and find the quickest ladder between two words
+	- using a linked list as a que, my program should use the breadth first search to search a list of words and find the quickest ladder between two words.
+	- program should search words around it and for each word found add it to a partial ladder que the ladders will keep increasing until the word is found.
 	- program should determine how many words were read from dictionary, be able to display all the words which are one away from a given word and be able to display the contents of the 
 	partial Solution list.
+	
+May have problems, with coding the breadth First search, may need two linked list one to be search and one to create partial ladders as a que until a ladder is complete.
 
 Test Case 1:
 
