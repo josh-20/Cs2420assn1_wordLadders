@@ -41,7 +41,7 @@ public class LadderGame <E>{
         list = (ArrayList) l.clone();
         for (String i : allList[a.length()])
             lList.addNode(i);
-        lList.display();
+       lList.display();
         System.out.println("Seeking a solution from " + a + " ->" + b + " Size of List " + list.size());
 
     }
