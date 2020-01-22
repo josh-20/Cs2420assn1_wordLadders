@@ -1,36 +1,35 @@
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 
 import java.util.Scanner;
 import java.util.Random;
 import java.io.File;
 import java.util.ArrayList;
-public class LadderGame <E>{
+
+public class LadderGame<E> {
     static int MaxWordSize = 15;
     ArrayList<String>[] allList;
     Random random;
     LinkedList lList = new LinkedList();
+    LinkedList secondList = new LinkedList();
 
-
-
-    public LadderGame(String file){
+    public LadderGame(String file) {
         random = new Random();
         allList = new ArrayList[MaxWordSize];
-        for( int i = 0; i < MaxWordSize; i++)
+        for (int i = 0; i < MaxWordSize; i++)
             allList[i] = new ArrayList<String>();
-        try{
+        try {
             Scanner reader = new Scanner(new File(file));
-            while(reader.hasNext()){
+            while (reader.hasNext()) {
                 String word = reader.next();
-                if (word.length()< MaxWordSize) allList[word.length()].add(word);
-           }
+                if (word.length() < MaxWordSize) allList[word.length()].add(word);
+            }
 
-        } catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public void play(String a, String b){
-        if (a.length() != b.length()){
+
+    public void play(String a, String b) {
+        if (a.length() != b.length()) {
             System.out.println("Words are not the same length");
             return;
         }
@@ -38,31 +37,60 @@ public class LadderGame <E>{
         ArrayList list = new ArrayList();
         ArrayList<String> l = allList[a.length()];
         list = (ArrayList) l.clone();
-        for (String i : allList[a.length()])
-            lList.addNode(i);
-       lList.display();
+        lList.enqueue(new WordInfo(a,1,a));
+        boolean found = false;
+        while (lList.isEmpty() && !found) {
+            for (String word : l) {
+                if (word.equals(b)){
+                    WordInfo newWord = new WordInfo(word,lList.head.word.moves + 1,lList.head.word.history+ " " + word);
+                    lList.enqueue(newWord);
+                    found = true;
+                    break;
+                }
+                else if (letterCheck(lList.head.word.word, word) && !lList.head.word.history.contains(word)) {
+                    WordInfo newWord = new WordInfo(word,lList.head.word.moves + 1,lList.head.word.history+ " " + word);
+                    lList.enqueue(newWord);
+                }
+            }
+            lList.dequeue();
+            lList.print();
+        }
         System.out.println("Seeking a solution from " + a + " ->" + b + " Size of List " + list.size());
-
-    }
-    public void play(int len){
-        if (len >= MaxWordSize) return;
-        ArrayList<String> list = allList[len];
-        String a = list.get(random.nextInt(list.size()));
-        String b = list.get(random.nextInt(list.size()));
-        play(a, b);
+        WordInfo fin = new WordInfo(lList.tail.word.word,lList.tail.word.moves,lList.tail.word.history);
+        System.out.println(fin);
     }
 
-    public void listwords(int words, int length){
-        int count = 0;
-        for(String i : allList[length]){
-            if (count < words){
-                System.out.println(i);
-                count++;
+        public void play ( int len){
+            if (len >= MaxWordSize) return;
+            ArrayList<String> list = allList[len];
+            String a = list.get(random.nextInt(list.size()));
+            String b = list.get(random.nextInt(list.size()));
+            play(a, b);
+        }
+
+        public boolean letterCheck (String a, String b){
+            int numbOffLetters = 0;
+            char[] secondWord = b.toCharArray();
+            char[] firstWord = a.toCharArray();
+            for (int i = 0; i < firstWord.length; ++i) {
+                if (firstWord[i] == secondWord[i]) {
+                    continue;
+                } else {
+                    numbOffLetters += 1;
+                }
+            }
+            if (numbOffLetters > 1) {
+                return false;
+            }
+            return true;
+        }
+        public void listwords ( int words, int length){
+            int count = 0;
+            for (String i : allList[length]) {
+                if (count < words) {
+                    System.out.println(i);
+                    count++;
+                }
             }
         }
     }
-    public void findLadder(String start, String end){
-        lList.addNode(start);
-
-    }
-}

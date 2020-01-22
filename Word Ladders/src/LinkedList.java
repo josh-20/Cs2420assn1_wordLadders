@@ -1,9 +1,9 @@
 public class LinkedList {
 
     class Node {
-        String word;
+        WordInfo word;
         Node next;
-        public Node(String word){
+        public Node(WordInfo word){
             this.word = word;
             this.next = null;
         }
@@ -11,7 +11,7 @@ public class LinkedList {
     public Node head = null;
     public Node tail = null;
 
-    public void addNode(String words){
+    public void enqueue(WordInfo words){
         Node newNode = new Node(words);
         if (head == null){
             head = newNode;
@@ -22,7 +22,23 @@ public class LinkedList {
             tail = newNode;
         }
     }
-    public void display(){
+    public Node dequeue() {
+        if (head == null) {
+            System.out.println("Queue is empty");
+            return null;
+        }
+        Node tempNode = head;
+        head = head.next;
+        return tempNode;
+    }
+    public boolean isEmpty(){
+        if (head == null){
+            return false;
+        }
+        return true;
+    }
+
+    public void print(){
         Node current = head;
         if (head == null){
             System.out.println("list is empty");
