@@ -48,14 +48,14 @@ public class LadderGame<E> {
             String b = list.get(random.nextInt(list.size()));
             play(a, b);
         }
-        public void find(String a, String b, ArrayList l,LinkedList lList){
 
+        // Find function compares start word with each word in dictionary to see if its one letter off it is it will add it to the que
+        public void find(String a, String b, ArrayList l,LinkedList lList){
             lList.enqueue(new WordInfo(a,0,a));
             boolean found = false;
             try {
                 while (!found) {
                     for (int i = 0; i < l.size(); i++) {
-
                         if (letterCheck(lList.head.word.word, l.get(i).toString()) && !lList.head.word.history.contains(l.get(i).toString())) {
                             WordInfo newWord = new WordInfo(l.get(i).toString(), lList.head.word.moves + 1, lList.head.word.history + " " + l.get(i).toString());
                             lList.enqueue(newWord);
@@ -69,10 +69,14 @@ public class LadderGame<E> {
 
                     }
                     lList.dequeue();
+                    // This is for partial solutions
+                    // lList.print();
 
                 }
+                //print word info object
                 WordInfo fin = new WordInfo(lList.tail.word.word, lList.tail.word.moves, lList.tail.word.history);
                 System.out.println(fin);
+
             }catch (NullPointerException ex){
                 System.out.println("Not a word ladder");
 
@@ -80,7 +84,7 @@ public class LadderGame<E> {
 
 
         }
-
+        // check each letter in a word to check if its one letter off.
         public boolean letterCheck (String a, String b){
             int numbOffLetters = 0;
             char[] secondWord = b.toCharArray();
@@ -97,6 +101,7 @@ public class LadderGame<E> {
             }
             return true;
         }
+        // prints out the first ten words in the list.
         public void listwords ( int words, int length){
             int count = 0;
             for (String i : allList[length]) {

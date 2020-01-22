@@ -19,8 +19,8 @@ design
 	
 May have problems, with coding the breadth First search, may need two linked list one to be search and one to create partial ladders as a que until a ladder is complete.
 
-Test Case 1:
+Test Case 1: first test case i was printing everything out correctly but i would end up adding goin one more itteration. i fixed this by changing my found function so that the if check for my found word was inside my add que if check function so it would only check that if statement if the word was a real word.
 
 
-Test Case 2:
+Test Case 2: second test case i found that my for each loop waas messing up working with the cloned list so i was using the original list which was meesing up the output if i ran all possible games. I fixed this issue by adding a function that took in a start point and a end point along with the que and the cloned list which fixed my issue so instead of messig up the real list i was working on the cloned one.
 
