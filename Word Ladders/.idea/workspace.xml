@@ -2,19 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfe28e01-a064-465c-97a5-387c2f4bc030" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDPWordLadder.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SDPWordLadder.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Word Ladders/LadderGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Word Ladders/LadderGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Word Ladders/LinkedList$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Word Ladders/LinkedList$Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Word Ladders/LinkedList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Word Ladders/LinkedList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Word Ladders/META-INF/Word Ladders.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Word Ladders/TestLadder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Word Ladders/TestLadder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Word Ladders/WordInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Word Ladders/WordInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LadderGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LadderGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinkedList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TestLadder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestLadder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WordInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordInfo.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,5 +96,19 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/LadderGame.java</url>
+          <line>29</line>
+          <properties class="LadderGame" method="play">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

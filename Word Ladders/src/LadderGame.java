@@ -8,8 +8,7 @@ public class LadderGame<E> {
     static int MaxWordSize = 15;
     ArrayList<String>[] allList;
     Random random;
-    LinkedList lList = new LinkedList();
-    LinkedList secondList = new LinkedList();
+    LinkedList foundList = new LinkedList();
 
     public LadderGame(String file) {
         random = new Random();
@@ -29,6 +28,7 @@ public class LadderGame<E> {
     }
 
     public void play(String a, String b) {
+        LinkedList lList = new LinkedList();
         if (a.length() != b.length()) {
             System.out.println("Words are not the same length");
             return;
@@ -37,27 +37,8 @@ public class LadderGame<E> {
         ArrayList list = new ArrayList();
         ArrayList<String> l = allList[a.length()];
         list = (ArrayList) l.clone();
-        lList.enqueue(new WordInfo(a,1,a));
-        boolean found = false;
-        while (lList.isEmpty() && !found) {
-            for (String word : l) {
-                if (word.equals(b)){
-                    WordInfo newWord = new WordInfo(word,lList.head.word.moves + 1,lList.head.word.history+ " " + word);
-                    lList.enqueue(newWord);
-                    found = true;
-                    break;
-                }
-                else if (letterCheck(lList.head.word.word, word) && !lList.head.word.history.contains(word)) {
-                    WordInfo newWord = new WordInfo(word,lList.head.word.moves + 1,lList.head.word.history+ " " + word);
-                    lList.enqueue(newWord);
-                }
-            }
-            lList.dequeue();
-            lList.print();
-        }
-        System.out.println("Seeking a solution from " + a + " ->" + b + " Size of List " + list.size());
-        WordInfo fin = new WordInfo(lList.tail.word.word,lList.tail.word.moves,lList.tail.word.history);
-        System.out.println(fin);
+        System.out.println("Seeking a solution from " + a + " ->" + b + " Size of List " + l.size());
+        find(a,b,list,lList);
     }
 
         public void play ( int len){
@@ -66,6 +47,38 @@ public class LadderGame<E> {
             String a = list.get(random.nextInt(list.size()));
             String b = list.get(random.nextInt(list.size()));
             play(a, b);
+        }
+        public void find(String a, String b, ArrayList l,LinkedList lList){
+
+            lList.enqueue(new WordInfo(a,0,a));
+            boolean found = false;
+            try {
+                while (!found) {
+                    for (int i = 0; i < l.size(); i++) {
+
+                        if (letterCheck(lList.head.word.word, l.get(i).toString()) && !lList.head.word.history.contains(l.get(i).toString())) {
+                            WordInfo newWord = new WordInfo(l.get(i).toString(), lList.head.word.moves + 1, lList.head.word.history + " " + l.get(i).toString());
+                            lList.enqueue(newWord);
+                            if (l.get(i).toString().equals(b)) {
+                                found = true;
+                                break;
+                            }
+                            l.remove(l.get(i).toString());
+                            i--;
+                        }
+
+                    }
+                    lList.dequeue();
+
+                }
+                WordInfo fin = new WordInfo(lList.tail.word.word, lList.tail.word.moves, lList.tail.word.history);
+                System.out.println(fin);
+            }catch (NullPointerException ex){
+                System.out.println("Not a word ladder");
+
+            }
+
+
         }
 
         public boolean letterCheck (String a, String b){

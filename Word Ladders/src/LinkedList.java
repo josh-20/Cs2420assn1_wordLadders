@@ -33,9 +33,9 @@ public class LinkedList {
     }
     public boolean isEmpty(){
         if (head == null){
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     public void print(){
