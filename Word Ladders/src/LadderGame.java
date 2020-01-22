@@ -76,9 +76,11 @@ public class LadderGame<E> {
                 //print word info object
                 WordInfo fin = new WordInfo(lList.tail.word.word, lList.tail.word.moves, lList.tail.word.history);
                 System.out.println(fin);
-
+                System.out.println();
+                System.out.println("|--------------------New Game----------------------|");
+                System.out.println();
             }catch (NullPointerException ex){
-                System.out.println("Not a word ladder");
+                System.out.println("ERROR: ---Not a word ladder----Or Does Not Exist-----  ");
 
             }
 
