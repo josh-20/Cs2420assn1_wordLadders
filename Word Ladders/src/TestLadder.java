@@ -5,8 +5,8 @@ public class TestLadder{
         LadderGame g = new LadderGame("dictionary.txt");
 
 
-       g.listwords(10, 6);
-       g.play("oops", "tots");
+       //g.listwords(10, 6);
+        g.play("oops", "tots");
         g.play("ride", "ands");
         g.play("happily", "angrily");
         g.play("slow", "fast");
